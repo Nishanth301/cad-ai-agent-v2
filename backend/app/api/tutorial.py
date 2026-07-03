@@ -1,19 +1,20 @@
 from fastapi import APIRouter
 
-from app.services.ai.factory import get_ai
+from app.services.ai.factory import get_ai_provider
 
 router = APIRouter()
 
 
-@router.get("/hello-ai")
-async def hello_ai():
+@router.get("/tutorial/test")
+async def tutorial_test():
 
-    ai = get_ai()
+    ai = get_ai_provider()
 
-    response = await ai.generate(
-        "Say hello in one sentence."
+    response = await ai.generate_text(
+        "Hello"
     )
 
     return {
-        "response": response
+        "provider": ai.__class__.__name__,
+        "response": response,
     }

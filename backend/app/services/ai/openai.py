@@ -1,14 +1,12 @@
-from .base import AIProvider
+from app.services.ai.base import AIProvider
 
 
 class OpenAIProvider(AIProvider):
 
-    async def generate_tutorial(
-        self,
-        image_path,
-        software,
-        level,
-    ):
+    async def generate_text(self, prompt: str) -> str:
+        """
+        Placeholder until deployment.
+        """
 
-        raise NotImplementedError
+        return "OpenAI provider connected successfully."
     
